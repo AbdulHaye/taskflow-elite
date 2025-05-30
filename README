@@ -1,0 +1,26 @@
+TaskFlow Elite
+A professional productivity dashboard built with Vue 3, TypeScript, and Vuetify.
+Setup
+
+Clone the repository.
+Navigate to the core directory and run npm install followed by npm run build.
+Navigate to the ui directory and run npm install followed by npm run dev.
+Open http://localhost:5173 in your browser.
+
+Features
+
+Task management with CRUD operations.
+Analytics chart showing task completion rate.
+Dark mode toggle.
+
+Architecture
+
+Core logic is in a separate TypeScript library (core).
+UI is built with Vue 3, using Vite for development and build.
+State management with Pinia.
+Routing with Vue Router.
+UI components with Vuetify.
+
+Testing
+
+Unit tests for core logic using Vitest.
