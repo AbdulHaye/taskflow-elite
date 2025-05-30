@@ -27,7 +27,7 @@
         multiple
         chips
       />
-      <v-menu>
+      <v-menu :close-on-content-click="false">
         <template v-slot:activator="{ props }">
           <v-text-field
             v-model="formattedDueDate"
@@ -36,9 +36,12 @@
             readonly
           />
         </template>
-        <v-date-picker v-model="newTask.dueDate" />
+        <v-date-picker
+          v-model="newTask.dueDate"
+          @update:modelValue="updateDueDate"
+        />
       </v-menu>
-      <v-menu>
+      <v-menu :close-on-content-click="false">
         <template v-slot:activator="{ props }">
           <v-text-field
             v-model="formattedReminderDate"
@@ -47,7 +50,10 @@
             readonly
           />
         </template>
-        <v-date-picker v-model="newTask.reminderDate" />
+        <v-date-picker
+          v-model="newTask.reminderDate"
+          @update:modelValue="updateReminderDate"
+        />
       </v-menu>
       <v-btn type="submit" color="primary" :disabled="!valid">Add Task</v-btn>
     </v-form>
@@ -93,12 +99,31 @@ const statuses = [
 const categories = ["General", "Work", "Personal", "Family"];
 const availableTags = ["Work", "Personal", "Urgent", "Family"];
 
-const formattedDueDate = computed(() =>
-  newTask.value.dueDate.toLocaleDateString()
-);
-const formattedReminderDate = computed(
-  () => newTask.value.reminderDate?.toLocaleDateString() || ""
-);
+const formattedDueDate = computed({
+  get() {
+    return newTask.value.dueDate.toLocaleDateString();
+  },
+  set(newValue: string) {
+    newTask.value.dueDate = new Date(newValue);
+  },
+});
+
+const formattedReminderDate = computed({
+  get() {
+    return newTask.value.reminderDate?.toLocaleDateString() || "";
+  },
+  set(newValue: string) {
+    newTask.value.reminderDate = newValue ? new Date(newValue) : undefined;
+  },
+});
+
+const updateDueDate = (newDate: Date) => {
+  newTask.value.dueDate = newDate;
+};
+
+const updateReminderDate = (newDate: Date) => {
+  newTask.value.reminderDate = newDate;
+};
 
 const addTask = () => {
   if (!newTask.value.title) {
