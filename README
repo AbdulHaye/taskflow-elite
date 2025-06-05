@@ -1,26 +1,82 @@
-TaskFlow Elite
-A professional productivity dashboard built with Vue 3, TypeScript, and Vuetify.
-Setup
+🛠️ Getting Started
+Follow these steps to get TaskFlow Elite running on your local machine.
 
-Clone the repository.
-Navigate to the core directory and run npm install followed by npm run build.
-Navigate to the ui directory and run npm install followed by npm run dev.
-Open http://localhost:5173 in your browser.
+1. Clone the Repository
 
-Features
+```bash
+git clone <repository-url>
+cd taskflow-elite
+```
 
-Task management with CRUD operations.
-Analytics chart showing task completion rate.
-Dark mode toggle.
+2. Set Up the Core Library
+   Navigate to the core directory:
 
-Architecture
+```bash
+cd core
+```
 
-Core logic is in a separate TypeScript library (core).
-UI is built with Vue 3, using Vite for development and build.
-State management with Pinia.
-Routing with Vue Router.
-UI components with Vuetify.
+Install dependencies:
 
-Testing
+```bash
+npm install
+```
 
-Unit tests for core logic using Vitest.
+Build the library:
+
+```bash
+npm run build
+```
+
+Return to the root directory:
+
+```bash
+cd ..
+```
+
+3. Set Up the UI
+   Navigate to the UI directory:
+
+```bash
+cd ui
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Access the App
+   Open your browser and visit:
+   http://localhost:5173
+   ✨ Features
+   ✅ Task Management
+   • Full CRUD operations: create, read, update, and delete tasks.
+   • Filter tasks by priority, tags, status, or search terms.
+   • Reorder tasks using intuitive drag-and-drop functionality.
+   📊 Analytics
+   • Visualize task completion rates with an interactive chart.
+   🌗 Enhanced User Experience
+   • Toggle between light and dark modes.
+   • Receive browser notifications for overdue tasks and reminders.
+   • Earn points and badges for completing tasks (gamification).
+   📤 Data Export
+   • Export your tasks to a CSV file for easy sharing or backup.
+   🏗️ Architecture Overview
+   🔧 Core Logic
+   • Located in the `core` directory.
+   • Implemented as a reusable TypeScript library.
+   • Handles task operations via TaskManager and includes analytics utilities.
+   🖼️ User Interface
+   • Built with Vue 3 in the `ui` directory.
+   • Uses Vite for lightning-fast development and builds.
+   🧠 State Management
+   • Powered by Pinia to manage tasks and user stats.
+   🌐 Routing
+   • Managed using Vue Router.
